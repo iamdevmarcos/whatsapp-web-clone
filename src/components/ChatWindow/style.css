@@ -49,7 +49,12 @@
 }
 
 .chatWindowBody {
-
+    flex:1;
+    overflow-y:auto;
+    background-color: #E5DDD5;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/assets/images/backgroundChatWindow.png');
 }
 
 .chatWindowFooter {

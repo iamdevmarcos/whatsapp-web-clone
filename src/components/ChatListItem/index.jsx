@@ -12,7 +12,7 @@ export const ChatListItem = () => {
                 </div>
                 <div className="chatListItemLine">
                     <div className="chatListItemLastMessage">
-                        <p>Opa, tudo bem ?</p>
+                        <p>Opa, tudo bem ?dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</p>
                     </div>
                 </div>
             </div>

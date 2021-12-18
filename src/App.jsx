@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { ChatListItem } from './components/ChatListItem';
+import { ChatIntro } from './components/ChatIntro';
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -42,7 +43,9 @@ const App = () => {
           ))}
         </div>
       </div>
-      <div className="contentArea">...</div>
+      <div className="contentArea">
+        <ChatIntro />
+      </div>
     </div>
   );
 }

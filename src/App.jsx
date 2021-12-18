@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { ChatListItem } from './components/ChatListItem';
 import { ChatIntro } from './components/ChatIntro';
+import { ChatWindow } from './components/ChatWindow';
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -10,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const App = () => {
   const [chatList, setChatList] = useState([{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]);
+  const [activeChat, setActiveChat] = useState({});
 
   return (
     <div className="appWindow">
@@ -44,7 +46,12 @@ const App = () => {
         </div>
       </div>
       <div className="contentArea">
-        <ChatIntro />
+        {activeChat.chatId !== undefined &&
+          <ChatWindow />
+        }
+        {activeChat.chatId === undefined &&
+          <ChatIntro />
+        }
       </div>
     </div>
   );

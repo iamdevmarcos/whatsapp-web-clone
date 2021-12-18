@@ -1,8 +1,8 @@
 import './style.css';
 
-export const ChatListItem = () => {
+export const ChatListItem = ({ onClick }) => {
     return (
-        <div className='chatListItem'>
+        <div className='chatListItem' onClick={onClick}>
             <img className="chatListItemAvatar" src="https://www.w3schools.com/howto/img_avatar2.png" alt="" />
 
             <div className="chatListItemLines">

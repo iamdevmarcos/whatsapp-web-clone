@@ -10,7 +10,12 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 
 const App = () => {
-  const [chatList, setChatList] = useState([{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]);
+  const [chatList, setChatList] = useState([
+    {chatId: 1, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+    {chatId: 2, title: 'Beltrano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+    {chatId: 3, title: 'Cicrano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+    {chatId: 4, title: 'Andre', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
+  ]);
   const [activeChat, setActiveChat] = useState({});
 
   return (
@@ -41,6 +46,7 @@ const App = () => {
           {chatList.map((item, index)=>(
             <ChatListItem
               key={index}
+              onClick={()=>setActiveChat(chatList[index])}
             />
           ))}
         </div>

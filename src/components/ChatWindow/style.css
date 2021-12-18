@@ -58,5 +58,33 @@
 }
 
 .chatWindowFooter {
+    height:62px;
+    display:flex;
+    align-items:center;
+}
 
+.chatWindowPre {
+    display:flex;
+    margin:0 15px;
+}
+
+.chatWindowInputArea {
+    flex:1;
+}
+
+.chatWindowInput {
+    width:100%;
+    height:40px;
+    border:0;
+    outline:0;
+    background-color: #FFF;
+    border-radius:20px;
+    font-size:15px;
+    color:#4A4A4A;
+    padding-left:15px;
+}
+
+.chatWindowPos {
+    display:flex;
+    margin:0 15px;
 }

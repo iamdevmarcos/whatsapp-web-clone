@@ -1,13 +1,16 @@
 import './style.css';
 
-export const ChatListItem = ({ onClick }) => {
+export const ChatListItem = ({ onClick, active, data }) => {
     return (
-        <div className='chatListItem' onClick={onClick}>
-            <img className="chatListItemAvatar" src="https://www.w3schools.com/howto/img_avatar2.png" alt="" />
+        <div
+            className={`chatListItem ${active?'active':''}`}
+            onClick={onClick}
+        >
+            <img className="chatListItemAvatar" src={data.image} alt="" />
 
             <div className="chatListItemLines">
                 <div className="chatListItemLine">
-                    <div className="chatListItemName">Marcos Andre</div>
+                    <div className="chatListItemName">{data.title}</div>
                     <div className="chatListItemDate">20:00</div>
                 </div>
                 <div className="chatListItemLine">

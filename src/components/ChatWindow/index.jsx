@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Picker from 'emoji-picker-react';
 import './style.css';
 
@@ -11,6 +11,12 @@ import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
 export const ChatWindow = () => {
+    const [emojiOpen, setEmojiOpen] = useState(false);
+
+    const handleEmojiClick = () => {}
+    const handleEmojiOpen = () => setEmojiOpen(true);
+    const handleCloseEmoji = () => setEmojiOpen(false);
+
     return (
         <div className="chatWindow">
             <div className="chatWindowHeader">
@@ -32,8 +38,12 @@ export const ChatWindow = () => {
             </div>
             <div className="chatWindowBody"></div>
 
-            <div className="chatWindowEmojiArea">
+            <div 
+                className="chatWindowEmojiArea"
+                style={{height: emojiOpen?'200px':'0px'}}
+            >
                 <Picker
+                    onEmojiClick={handleEmojiClick}
                     disableSearchBar
                     disableSkinTonePicker
                 />
@@ -41,12 +51,22 @@ export const ChatWindow = () => {
 
             <div className="chatWindowFooter">
                 <div className="chatWindowPre">
-                    <div className="chatWindowBtn">
-                        <CloseIcon style={{color:'#919191'}} />
-                    </div>
-                    <div className="chatWindowBtn">
-                        <InsertEmoticonIcon style={{color:'#919191'}} />
-                    </div>
+                    {emojiOpen &&
+                        <div
+                            className="chatWindowBtn"
+                            onClick={handleCloseEmoji}
+                        >
+                            <CloseIcon style={{color:'#919191'}} />
+                        </div>
+                    }
+                    {!emojiOpen &&
+                        <div
+                            className="chatWindowBtn"
+                            onClick={handleEmojiOpen}
+                        >
+                            <InsertEmoticonIcon style={{color:'#919191'}} />
+                        </div>
+                    }
                 </div>
                 <div className="chatWindowInputArea">
                     <input

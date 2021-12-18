@@ -88,3 +88,18 @@
     display:flex;
     margin:0 15px;
 }
+
+.chatWindowEmojiArea {
+    height:200px;
+    overflow-y:hidden;
+    transition: all ease 0.3s;
+}
+
+aside.emoji-picker-react {
+    width:auto;
+    background: none;
+}
+
+.emoji-picker-react .emoji-group:before {
+    background:none;
+}

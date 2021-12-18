@@ -1,4 +1,7 @@
+import React, { useState } from 'react';
+import Picker from 'emoji-picker-react';
 import './style.css';
+
 import SearchIcon from '@material-ui/icons/Search';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -28,8 +31,19 @@ export const ChatWindow = () => {
                 </div>
             </div>
             <div className="chatWindowBody"></div>
+
+            <div className="chatWindowEmojiArea">
+                <Picker
+                    disableSearchBar
+                    disableSkinTonePicker
+                />
+            </div>
+
             <div className="chatWindowFooter">
                 <div className="chatWindowPre">
+                    <div className="chatWindowBtn">
+                        <CloseIcon style={{color:'#919191'}} />
+                    </div>
                     <div className="chatWindowBtn">
                         <InsertEmoticonIcon style={{color:'#919191'}} />
                     </div>

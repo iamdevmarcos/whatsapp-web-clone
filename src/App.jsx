@@ -3,6 +3,7 @@ import './App.css';
 import { ChatListItem } from './components/ChatListItem';
 import { ChatIntro } from './components/ChatIntro';
 import { ChatWindow } from './components/ChatWindow';
+import { NewChat } from './components/NewChat';
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -20,10 +21,19 @@ const App = () => {
   const [user, setUser] = useState({
     id: 1234, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Marcos'
   });
+  const [showNewChat, setShowNewChat] = useState(false);
+  
+  const handleNewChat = () => setShowNewChat(true);
 
   return (
     <div className="appWindow">
       <div className="sideBar">
+        <NewChat
+          chatList={chatList}
+          user={user}
+          show={showNewChat}
+          setShow={setShowNewChat}
+        />
         <header>
           <img className="headerAvatar" src={user.avatar} alt="" />
 
@@ -31,7 +41,7 @@ const App = () => {
             <div className="headerBtn">
               <DonutLargeIcon style={{color:'#919191'}} />
             </div>
-            <div className="headerBtn">
+            <div onClick={handleNewChat} className="headerBtn">
               <ChatIcon style={{color:'#919191'}} />
             </div>
             <div className="headerBtn">

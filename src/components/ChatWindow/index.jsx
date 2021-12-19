@@ -13,7 +13,7 @@ import MicIcon from '@material-ui/icons/Mic';
 export const ChatWindow = () => {
 
     let recognition = null;
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if(SpeechRecognition !== undefined) {
         recognition = new SpeechRecognition();
     }
@@ -22,23 +22,25 @@ export const ChatWindow = () => {
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
 
-    const handleEmojiClick = (e, emojiObject) => setText(text + emojiObject.emoji);
+    const handleEmojiClick = (e, emojiObject) => setText(text + emojiObject.emoji); 
     const handleEmojiOpen = () => setEmojiOpen(true);
     const handleCloseEmoji = () => setEmojiOpen(false);
     const handleSendClick = () => {} 
     const handleMicClick = () => {
         if(recognition !== null) {
-            recognition.onStart = () => {
+            recognition.onstart = () => {
                 setListening(true);
             }
-            recognition.onEnd = () => {
+            recognition.onend = () => {
                 setListening(false);
             }
-            recognition.onResult = (e) => {
+            recognition.onresult = (e) => {
                 setText(e.results[0][0].transcript);
             }
 
             recognition.start();
+        } else {
+            alert('not suported');
         }
     } 
 

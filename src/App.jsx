@@ -17,12 +17,15 @@ const App = () => {
     {chatId: 4, title: 'Andre', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
   ]);
   const [activeChat, setActiveChat] = useState({});
+  const [user, setUser] = useState({
+    id: 1234, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Marcos'
+  });
 
   return (
     <div className="appWindow">
       <div className="sideBar">
         <header>
-          <img className="headerAvatar" src="https://www.w3schools.com/howto/img_avatar2.png" alt="" />
+          <img className="headerAvatar" src={user.avatar} alt="" />
 
           <div className="headerButtons">
             <div className="headerBtn">
@@ -55,7 +58,9 @@ const App = () => {
       </div>
       <div className="contentArea">
         {activeChat.chatId !== undefined &&
-          <ChatWindow />
+          <ChatWindow
+            user={user}
+          />
         }
         {activeChat.chatId === undefined &&
           <ChatIntro />

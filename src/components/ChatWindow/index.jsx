@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Picker from 'emoji-picker-react';
 import './style.css';
 
@@ -12,7 +12,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
-export const ChatWindow = () => {
+export const ChatWindow = ({ user }) => {
+
+    const body = useRef();
 
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -23,7 +25,67 @@ export const ChatWindow = () => {
     const [emojiOpen, setEmojiOpen] = useState(false);
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
-    const [list, setList] = useState([{}, {}, {}]);
+    const [list, setList] = useState([
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:123, body: 'bla bla bla'},
+        {author:123, body: 'bla bla bla bla bla bla'},
+        {author:1234, body: 'hey man'},
+        {author:1234, body: 'hey man'},
+        {author:1234, body: 'hey man2   '},
+    ]);
+
+    useEffect(() => {
+        if(body.current.scrollHeight > body.current.offsetHeight) {
+            body.current.scrollTop = body.current.scrollHeight - body.current.offsetHeight;
+        }
+    }, [list]);
 
     const handleEmojiClick = (e, emojiObject) => setText(text + emojiObject.emoji); 
     const handleEmojiOpen = () => setEmojiOpen(true);
@@ -66,11 +128,12 @@ export const ChatWindow = () => {
                     </div>
                 </div>
             </div>
-            <div className="chatWindowBody">
+            <div ref={body} className="chatWindowBody">
                 {list.map((item, index)=>(
                     <MessageItem
                         key={index}
                         data={item}
+                        user={user}
                     />
                 ))}
             </div>

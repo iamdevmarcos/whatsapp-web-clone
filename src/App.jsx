@@ -15,14 +15,13 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 
 const App = () => {
-  const [chatList, setChatList] = useState([
-    {chatId: 1, title: 'Fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 2, title: 'Beltrano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 3, title: 'Cicrano', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 4, title: 'Andre', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-  ]);
+  const [chatList, setChatList] = useState([]);
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    id:'6nlT00PCfYRmCk0izMNWKy8HBic2',
+    name: 'Marcos', 
+    avatar: 'https://graph.facebook.com/288455176564209/picture'
+  });
   const [showNewChat, setShowNewChat] = useState(false);
   
   const handleNewChat = () => setShowNewChat(true);

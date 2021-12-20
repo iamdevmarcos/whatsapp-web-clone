@@ -18,5 +18,21 @@ export const api = {
             name: u.name,
             avatar: u.avatar
         }, {merge:true});
+    },
+    getContactList: async (userId) => {
+        let list = [];
+        let results = await db.collection('users').get();
+        results.forEach(result => {
+            let data = result.data();
+            if(result.id !== userId) {
+                list.push({
+                    id: result.id,
+                    name: data.name,
+                    avatar: data.avatar
+                });
+            }
+        });
+
+        return list;
     }   
 }

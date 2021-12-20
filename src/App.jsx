@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
+import { api } from './services/api';
+
 import { ChatListItem } from './components/ChatListItem';
 import { ChatIntro } from './components/ChatIntro';
 import { ChatWindow } from './components/ChatWindow';
@@ -29,6 +32,8 @@ const App = () => {
       name: u.displayName,
       avatar: u.photoURL
     }
+    console.log(newUser);
+    await api.addUser(newUser);
     setUser(newUser);
   }
 

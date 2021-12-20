@@ -17,11 +17,7 @@ import SearchIcon from '@material-ui/icons/Search';
 const App = () => {
   const [chatList, setChatList] = useState([]);
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState({
-    id:'6nlT00PCfYRmCk0izMNWKy8HBic2',
-    name: 'Marcos', 
-    avatar: 'https://graph.facebook.com/288455176564209/picture'
-  });
+  const [user, setUser] = useState(null);
   const [showNewChat, setShowNewChat] = useState(false);
 
   useEffect(() => {

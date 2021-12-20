@@ -89,14 +89,15 @@ const App = () => {
         </div>
       </div>
       <div className="contentArea">
-        {activeChat.chatId !== undefined &&
-          <ChatWindow
-            user={user}
-          />
-        }
-        {activeChat.chatId === undefined &&
-          <ChatIntro />
-        }
+          {activeChat.chatId !== undefined &&
+              <ChatWindow
+                  user={user}
+                  data={activeChat}
+              />
+          }
+          {activeChat.chatId === undefined &&
+              <ChatIntro />
+          }
       </div>
     </div>
   );

@@ -58,5 +58,15 @@ export const api = {
                 with: user.id
             })
         });
+    },
+    onChatList: (userId, setChatList) => {
+        return db.collection('users').doc(userId).onSnapshot((doc) => {
+            if(doc.exists) {
+                const data = doc.data();
+                if(data.chats) {
+                    setChatList(data.chats);
+                }
+            }
+        }); 
     }
 }

@@ -16,7 +16,7 @@ export const Login = ({ onReceive }) => {
             <button
                 onClick={handleFacebookLogin}
             >
-                Logar com facebook
+                Log in with Facebook
             </button>
         </div>
     );

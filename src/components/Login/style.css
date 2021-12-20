@@ -4,3 +4,16 @@
     align-items: center;
     height:100vh;
 }
+
+.login button {
+    width:400px;
+    height:70px;
+    padding:5px;
+    border-radius:10px;
+    color:#FFF;
+    background-color:#476A9B;
+    font-weight:bold;
+    font-size:20px;
+    border:0;
+    cursor:pointer;
+}

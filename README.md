@@ -1,7 +1,7 @@
 # Whatsapp Web Clone with React.JS
 > clone of whatsapp web with react.js
 
-<img src="./assets/images/Project.gif" alt="gif">
+<img src="./public/assets/images/Project.gif" alt="gif">
 
 ## Technology stack
 
